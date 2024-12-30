@@ -1,16 +1,10 @@
-import adapter from '@sveltejs/adapter-node';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import adapter from '@fleek-platform/svelte-adapter';
 
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
-    preprocess: vitePreprocess(),
-
-    kit: {
-        adapter: adapter({
-            // you can specify node adapter options here
-            out: 'build'
-        })
-    }
+export default {
+  kit: {
+    adapter: adapter({
+      // optional configuration
+      outDir: '.fleek', // Defaults to '.fleek'
+    }),
+  },
 };
-
-export default config;
